@@ -14,7 +14,7 @@ function ViewLaunchDetailsByIdComponent(props: LauncDetailsProps) {
 
   React.useEffect(() => {
     axios
-      .get(`https://api.spacexdata.com/v3/launches/${location.state.id}`) //`https://api.spacexdata.com/v3/launches/{props.id}`) // ("https://localhost:7289/Launch/" + props.id)
+      .get(`https://dotnetwebapi20230502194532.azurewebsites.net/Launch/27/${location.state.id}`) //`https://api.spacexdata.com/v3/launches/{props.id}`) // ("https://localhost:7289/Launch/" + props.id)
       .then((response) => {
         console.log(response.data);
         setResult(response.data);

@@ -11,9 +11,11 @@ export default function App() {
 
   return (
     <Router>
-      <div className="App">
-        <Link to="/home">Home</Link>
-        <Link to="/LaunchDetails">LaunchDetails</Link>
+          <div className="App">
+              <h1>SpaceXReactJsPOC</h1>
+{/*        <Link to="/home">Home</Link>*/}
+              <Link to="/LaunchDetails"><h3>Launch Details</h3></Link>
+              <hr></hr>
         {/*         
         <TableComponent></TableComponent> */}
       </div>

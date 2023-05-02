@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import axios from "axios";
-import ViewLaunchDetails from "./components/ViewLaunchDetails/ViewLaunchDetails";
+import ViewLaunchDetails from "../ViewLaunchDetails/ViewLaunchDetails";//"./components/ViewLaunchDetails/ViewLaunchDetails";
+
 
 function TableComponent() {
   const [result, setResult] = useState([]);
