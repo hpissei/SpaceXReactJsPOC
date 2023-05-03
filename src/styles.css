@@ -2,3 +2,26 @@
   font-family: sans-serif;
   text-align: center;
 }
+.form-control {
+	border: 0;
+}
+.no-border {
+	border: 0;
+	box-shadow: none;
+}
+
+.remove-link-underline {
+	text-decoration: none;
+	color: var(--bs-table-striped-color);
+}
+
+/*.card {
+	width: 18rem;
+}
+*/
+.center {
+	margin: auto;
+	width: 50%;
+	border: 3px solid green;
+	padding: 10px;
+}

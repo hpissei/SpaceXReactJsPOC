@@ -1,7 +1,6 @@
-import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import axios from "axios";
-import ViewLaunchDetails from "../ViewLaunchDetails/ViewLaunchDetails";//"./components/ViewLaunchDetails/ViewLaunchDetails";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 
 function TableComponent() {
@@ -35,9 +34,9 @@ function TableComponent() {
                 <td>{val["upcoming"] == true ? "Yes" : "No"}</td>
                 <td>
                   <Link
-                    to="/ViewLaunchDetails"
-                    state={{ id: val["flight_number"], value: val }}
-                           >
+                            to="/ViewLaunchDetails"
+                            state={{ id: val["flight_number"], value: val }}
+                            className="btn btn-success">
                     View Details
                   </Link>
                 </td>
@@ -51,3 +50,4 @@ function TableComponent() {
 }
 
 export default TableComponent;
+

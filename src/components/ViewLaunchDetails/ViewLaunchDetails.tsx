@@ -3,87 +3,46 @@ import axios from "axios";
 import { Link, useLocation } from "react-router-dom";
 
 type LauncDetailsProps = {
-  id?: number;
-  value?: any;
+	id?: number;
+	value?: any;
 }
 
-function ViewLaunchDetailsByIdComponent(props: LauncDetailsProps) {
-  const [result, setResult] = useState([]);
+function ViewLaunchDetailsComponent(props: LauncDetailsProps) {
+	const [result, setResult] = useState([]);
 
-  const location = useLocation();
+	const location = useLocation();
 
-  React.useEffect(() => {
-    axios
-      .get(`https://dotnetwebapi20230502194532.azurewebsites.net/Launch/27/${location.state.id}`) //`https://api.spacexdata.com/v3/launches/{props.id}`) // ("https://localhost:7289/Launch/" + props.id)
-      .then((response) => {
-        console.log(response.data);
-        setResult(response.data);
-        console.log("location " + location.state.id);
-      })
-      .catch(function (error) {
-        console.log("id error" + error);
-      });
-  }, []);
+	React.useEffect(() => {
+		axios
+			.get(`https://dotnetwebapi20230502194532.azurewebsites.net/Launch/${location.state.id}`)
+			.then((response) => {
+				console.log(response.data);
+				setResult(response.data);
+				console.log("location " + location.state.id);
+			})
+			.catch(function (error) {
+				console.log("id error" + error);
+			});
+	}, []);
 
-  return (
-    <div className="container">
-      <p>Launch Details</p>
-      <div className="form-group">
-        <div className="form-control">
-          Mission Name: {location.state.value["mission_name"]}
-        </div>
-      </div>
-      <div className="form-group">
-        <div className="form-control">
-          Launch Year: {location.state.value["launch_year"]}
-        </div>
-        <div className="form-control">
-          Launch Date: {location.state.value["launch_date_utc"]}
-        </div>
-      </div>
-      <div className="form-group">
-        <div className="form-control">
-          Rocket Name: {location.state.value["rocket"]["rocket_name"]}
-        </div>
-        <div className="form-control">
-          Rocket Type: {location.state.value["rocket"]["rocket_type"]}
-        </div>
-      </div>
-      <div className="form-group">
-        <div className="form-control">
-          Site Name: {location.state.value["launch_site"]["site_name"]}
-        </div>
-        <div className="form-control">
-          Site Name: {location.state.value["launch_site"]["site_name_long"]}
-        </div>
-      </div>
-      <div className="form-group">
-        <div className="form-control">
-          Details: {location.state.value["details"]}
-        </div>{" "}
-        <div className="form-control">Rocket Type: </div>
-      </div>
-      <div className="form-group">
-        Image
-        <img
-          width="60"
-          height="180"
-          className="img form-control"
-          alt="Mission Patch Image"
-          src={location.state.value["links"]["mission_patch"]}
-        />
-      </div>
-      <div className="form-group">
-        Article
-        <a
-          className="form-control"
-          href="https://www.space.com/2196-spacex-inaugural-falcon-1-rocket-lost-launch.html"
-        >
-          Link
-        </a>
-      </div>
-    </div>
-  );
+	return (
+		<div className="card  w-30 center mt-2" >
+			<img className="card-img-top" src={location.state.value["links"]["mission_patch"]} style={{ width: 100, height: 100 }} alt="Mission Patch Image" />
+			<div className="card-body">
+				<h5 className="card-title">Launch Details</h5>
+				<p className="card-text"> <b>Mission Name:</b> {location.state.value["mission_name"]}</p>
+				<p className="card-text"> <b>Launch Year:</b> {location.state.value["launch_year"]}</p>
+				<p className="card-text"> <b>Launch Date: </b>{location.state.value["launch_date_utc"]}</p>
+				<p className="card-text"> <b>Rocket Name:</b> {location.state.value["rocket"]["rocket_name"]}</p>
+				<p className="card-text"> <b>Rocket Type:</b> {location.state.value["rocket"]["rocket_type"]}</p>
+				<p className="card-text"> <b>Site Name: </b>{location.state.value["launch_site"]["site_name"]}</p>
+				<p className="card-text"> <b>Site Name Long:</b> {location.state.value["launch_site"]["site_name_long"]}</p>
+				<p className="card-text"> <b>Details:</b> {location.state.value["details"]}</p>
+				<p className="card-text"> <b>Mission Name:</b> {location.state.value["mission_name"]}</p>
+				<a href={location.state.value["links"]["article_link"]} className="btn btn-primary" target="_blank">Link</a>
+			</div>
+		</div>
+	);
 }
 
-export default ViewLaunchDetailsByIdComponent;
+export default ViewLaunchDetailsComponent;

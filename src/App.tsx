@@ -7,27 +7,26 @@ import ViewLaunchDetailsByIdComponent from "./components/ViewLaunchDetails/ViewL
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function App() {
-  const [result, setResult] = useState([]);
+	const [result, setResult] = useState([]);
 
-  return (
-    <Router>
-          <div className="App">
-              <h1>SpaceXReactJsPOC</h1>
-{/*        <Link to="/home">Home</Link>*/}
-              <Link to="/LaunchDetails"><h3>Launch Details</h3></Link>
-              <hr></hr>
-        {/*         
-        <TableComponent></TableComponent> */}
-      </div>
-      <Routes>
-        <Route path="/home" element={<HomeComponent />}></Route>
-        <Route path="/LaunchDetails" element={<TableComponent />} />
-        <Route
-          path="/ViewLaunchDetails"
-          element={<ViewLaunchDetailsByIdComponent />}
-        />
-      </Routes>
-    </Router>
-  );
+	return (
+		<Router>
+			<div className="App">
+				<h1>SpaceXReactJsPOC</h1>
+
+				<nav className="navbar navbar-dark bg-dark">
+					<span className="navbar-brand mb-0 h1"><Link to="/LaunchDetails" className="remove-link-underline"><h3>Launch Details</h3></Link></span>
+				</nav>
+
+			</div>
+			<Routes>
+				<Route path="/home" element={<HomeComponent />}></Route>
+				<Route path="/LaunchDetails" element={<TableComponent />} />
+				<Route
+					path="/ViewLaunchDetails"
+					element={<ViewLaunchDetailsByIdComponent />}
+				/>
+			</Routes>
+		</Router>
+	);
 }
-// state= {{ id: 0, value: null}} />}
