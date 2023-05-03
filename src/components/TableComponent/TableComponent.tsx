@@ -15,7 +15,7 @@ function TableComponent() {
 
   return (
     <div className="App">
-      <table className="table table-striped table-dark">
+          <table className="table table-striped table-dark" data-testid="table-component">
         <tbody>
           <tr>
             <th>Flight Number</th>
@@ -28,7 +28,7 @@ function TableComponent() {
           {result.map((val, key) => {
             return (
               <tr key={key}>
-                <td>{val["flight_number"]}</td>
+                    <td data-testid={"table-component-" + val["flight_number"]}>{val["flight_number"]}</td>
                 <td>{val["mission_name"]}</td>
                 <td>{val["launch_window"]}</td>
                 <td>{val["launch_year"]}</td>
@@ -37,7 +37,7 @@ function TableComponent() {
                   <Link
                     to="/ViewLaunchDetails"
                     state={{ id: val["flight_number"], value: val }}
-                  >
+                           >
                     View Details
                   </Link>
                 </td>

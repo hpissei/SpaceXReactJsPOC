@@ -5,7 +5,7 @@ import { Link, useLocation } from "react-router-dom";
 type LauncDetailsProps = {
   id?: number;
   value?: any;
-};
+}
 
 function ViewLaunchDetailsByIdComponent(props: LauncDetailsProps) {
   const [result, setResult] = useState([]);
