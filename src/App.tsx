@@ -1,6 +1,6 @@
 import "./styles.css";
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link, Navigate } from "react-router-dom";
 import TableComponent from "./components/TableComponent/TableComponent";
 import HomeComponent from "./components/HomeComponent/HomeComponent";
 import ViewLaunchDetailsByIdComponent from "./components/ViewLaunchDetails/ViewLaunchDetails";
@@ -17,9 +17,9 @@ export default function App() {
 				<nav className="navbar navbar-dark bg-dark">
 					<span className="navbar-brand mb-0 h1"><Link to="/LaunchDetails" className="remove-link-underline"><h3>Launch Details</h3></Link></span>
 				</nav>
-
 			</div>
 			<Routes>
+				<Route path="/" element={<Navigate to="/LaunchDetails" />} />
 				<Route path="/home" element={<HomeComponent />}></Route>
 				<Route path="/LaunchDetails" element={<TableComponent />} />
 				<Route
